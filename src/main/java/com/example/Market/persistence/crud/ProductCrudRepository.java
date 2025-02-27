@@ -12,6 +12,6 @@ public interface ProductCrudRepository extends CrudRepository<ProductEntity, Int
     List<ProductEntity> findByCategoryIdCategory(Integer categoryId);
     List<ProductEntity> findByQuantityStockLessThanAndStatusProduct(Integer quantityStock, Boolean status);
     Optional<ProductEntity> findByNameProduct(String nameProduct);
-    Optional<ProductEntity> findById(Integer id);
+    Optional<ProductEntity> findById(Integer idProduct);
     void deleteById(Integer idProduct);
 }

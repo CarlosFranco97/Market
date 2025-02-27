@@ -13,7 +13,7 @@ public interface ProductRepository {
     List<Product> getByCategory(Integer idCategory);
     List<Product> getScarseProducts(Integer quantityStock, Boolean status);
     Optional<Product> getByNameProduct(String nameProduct);
-    Optional<Product> getById(Integer id);
+    Optional<Product> getByIdProduct(Integer idProduct);
     Product save(Product product);
-    void deleteForId(Integer idProduct);
+    boolean deleteForId(Integer idProduct);
 }

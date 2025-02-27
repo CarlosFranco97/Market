@@ -42,7 +42,7 @@ public class ProductRepositoryJpa implements ProductRepository {
         return productByName.map(product -> mapper.toProduct(product));
     }
 
-    public Optional<Product> getById(Integer idProduct){
+    public Optional<Product> getByIdProduct(Integer idProduct){
         Optional<ProductEntity> productById =  productCrudRepository.findById(idProduct);
         return productById.map(product -> mapper.toProduct(product));
     }
@@ -54,12 +54,15 @@ public class ProductRepositoryJpa implements ProductRepository {
     }
 
     @Override
-    public void deleteForId(Integer idProduct) {
+    public boolean deleteForId(Integer idProduct) {
         if(!productCrudRepository.existsById(idProduct)){
             throw new RuntimeException("Producto no encontrado con el ID: " + idProduct);
         }
 
         productCrudRepository.deleteById(idProduct);
+        return true;
+
+
     }
 
 }

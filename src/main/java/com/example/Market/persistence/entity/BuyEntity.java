@@ -96,4 +96,12 @@ public class BuyEntity {
     public void setBuyProducts(List<BuyProductEntity> buyProduct) {
         this.buyProduct = buyProduct;
     }
+
+    public List<BuyProductEntity> getBuyProduct() {
+        return buyProduct;
+    }
+
+    public void setBuyProduct(List<BuyProductEntity> buyProduct) {
+        this.buyProduct = buyProduct;
+    }
 }

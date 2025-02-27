@@ -1,7 +1,7 @@
 package com.example.Market.domain.service;
 
 import com.example.Market.domain.Product;
-import com.example.Market.persistence.ProductRepositoryJpa;
+import com.example.Market.domain.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,34 +12,34 @@ import java.util.Optional;
 public class ProductService {
 
     @Autowired
-    ProductRepositoryJpa productRepositoryJpa;
+    ProductRepository productRepository;
 
     public List<Product> getAlLProducts(){
-        return productRepositoryJpa.getAllProducts();
+        return productRepository.getAllProducts();
     }
 
     public List<Product> getByCategory(Integer idCategory){
-        return productRepositoryJpa.getByCategory(idCategory);
+        return productRepository.getByCategory(idCategory);
     }
 
     public List<Product> getScarseProduct(Integer quantityStock, Boolean status){
-        return productRepositoryJpa.getScarseProducts(quantityStock, true);
+        return productRepository.getScarseProducts(quantityStock, true);
     }
 
     public Optional<Product> getByNameProduct(String nameProduct){
-        return productRepositoryJpa.getByNameProduct(nameProduct);
+        return productRepository.getByNameProduct(nameProduct);
     }
 
     public Optional<Product> getById(Integer id){
-        return productRepositoryJpa.getById(id);
+        return productRepository.getByIdProduct(id);
     }
 
     public Product save(Product product){
-        return productRepositoryJpa.save(product);
+        return productRepository.save(product);
     }
 
-    public void delete(Integer idProduct){
-        productRepositoryJpa.deleteForId(idProduct);
+    public boolean delete(Integer idProduct){
+        return productRepository.deleteForId(idProduct);
     }
 
 }
